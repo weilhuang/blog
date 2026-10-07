@@ -4,8 +4,8 @@ import { data as posts } from '../../posts.data'
 </script>
 
 <template>
-  <ul class="post-list">
-    <li v-for="post in posts" :key="post.url" class="post-item">
+  <div class="post-list">
+    <article v-for="post in posts" :key="post.url" class="post-item">
       <a class="post-link" :href="withBase(post.url)">
         <time class="post-date" :datetime="new Date(post.date.time).toISOString()">
           {{ post.date.string }}
@@ -16,6 +16,6 @@ import { data as posts } from '../../posts.data'
           <span v-for="tag in post.tags" :key="tag" class="post-tag">{{ tag }}</span>
         </p>
       </a>
-    </li>
-  </ul>
+    </article>
+  </div>
 </template>
